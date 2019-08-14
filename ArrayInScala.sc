@@ -1,4 +1,10 @@
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+/* Given an array a that contains only numbers in the range from 1 to a.length, 
+find the first duplicate number for which the second occurrence has the minimal
+index. In other words, if there are more than 1 duplicated numbers, return the 
+number for which the second occurrence has a smaller index than the second 
+occurrence of the other number does. If there are no such elements, return -1.
+*/
 
 def firstDuplicate(a: Array[Int]): Int =  {
   var seen: Set[Int] = Set.empty[Int]
@@ -16,6 +22,9 @@ def firstDuplicate(a: Array[Int]): Int =  {
 }
 
 firstDuplicate(Array(1,2,3,4,3,2))
+/* Given a string s consisting of small English letters, find and return the first 
+instance of a non-repeating character in it. If there is no such character, return '_'.
+*/
 
 def firstNotRepeatingCharacter(s: String): Char = {
   var repeating = Set[Char]()
@@ -34,6 +43,9 @@ def firstNotRepeatingCharacter(s: String): Char = {
 
 firstNotRepeatingCharacter("abcabdc")
 
+/* You are given an n x n 2D matrix that represents an image. 
+Rotate the image by 90 degrees (clockwise).
+*/
 def rotateImage(a: Array[Array[Int]]): Array[Array[Int]] = {
   var n = a.length - 1
   var row = a.length
@@ -48,6 +60,11 @@ def rotateImage(a: Array[Array[Int]]): Array[Array[Int]] = {
 }
 
 rotateImage(Array(Array(1,2,3),Array(4,5,6), Array(7,8,9)))
+
+/* Implement an algorithm that will check whether the given grid of numbers 
+represents a valid Sudoku puzzle according to the layout rules described above. 
+Note that the puzzle represented by grid does not have to be solvable.
+*/
 
 def rows(grid: Array[Array[Char]]): Boolean = {
   var bool = true
@@ -91,6 +108,17 @@ val grid = Array(
   Array('5','.','.','.','5','.','.','.','.'),
 )
 sudoku2(grid)
+
+/*You have an array of strings crypt, the cryptarithm, and an an array 
+containing the mapping of letters and digits, solution. The array crypt 
+will contain three non-empty strings that follow the structure: 
+[word1, word2, word3], which should be interpreted as the word1 + word2 = word3 cryptarithm.
+
+If crypt, when it is decoded by replacing all of the letters in the cryptarithm
+with digits using the mapping in solution, becomes a valid arithmetic equation 
+containing no numbers with leading zeroes, the answer is true. If it does not 
+become a valid arithmetic solution, the answer is false.
+*/
 
 def isCryptSolution(crypt: Array[String], solution: Array[Array[Char]]): Boolean = {
   var temp = ArrayBuffer[String]()
